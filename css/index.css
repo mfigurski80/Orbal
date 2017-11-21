@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  /*Color Vars*/
+  --color-space: rgba(23,23,33,1);
+}
+::selection {
+  background: rgba(255,255,255,.0);
+}
+body {
+  background-color: var(--color-space);
+  cursor: crosshair;
+}
+
+.red {
+  color: indianred;
+}
+
+#viewport {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+#map {
+  width: 10000px;
+  height: 10000px;
+  overflow: hidden;
+  transition: all .07s linear;
+  background-image: url("../resources/stars.png");
+  background-repeat: repeat;
+  background-size: 50%;
+}
+
+#player {
+
+}
+#rocketship {
+  position: fixed;
+  margin-left: calc(50vw - 35px);
+  margin-top: calc(50vh - 35px);
+}
+#downDirector {
+  position: fixed;
+  margin-left: calc(50vw - 85px);
+  margin-top: calc(50vh - 85px);
+  border-radius: 50%;
+  transform: rotate(130deg);
+}
+#velDirector {
+  position: fixed;
+  margin-left: calc(50vw - 85px);
+  margin-top: calc(50vh - 85px);
+}
+.output {
+  position: fixed;
+  border: 1px solid white;
+  background-color: var(--color-space);
+  max-height: 500px;
+  width: 150px;
+  top: 0;
+  left: 0;
+  z-index: 10;
+} .output > p {
+  color: white;
+}
+#output2 {
+  left: calc(100vw - 152px);
+}
+
+.planet {
+  width: 100px;
+  height: 100px;
+  background-color: gray;
+  border-radius: 50%;
+}
+#earth {
+  height: 5000px;
+  width: 5000px;
+  margin: 2500px;
+  background-color: lightyellow;
+  box-shadow: 0px 0px 400px white;
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8">
+  <title>Orbal</title>
+</head>
+  <body>
+    <div class="output" id="output1"></div>
+    <div class="output" id="output2">Hello</div>
+    <div id="viewport" onmousemove="updateRocketRotation()" onmousedown="mouseDown()" onmouseup="mouseUp()">
+      <div id="player">
+        <img id="velDirector" src="resources/velDirector.svg" height="170px" width="170px">
+        <img id="downDirector" src="resources/downDirector.svg" height="170px" width="170px">
+        <img id="rocketship" src="resources/rocketship1.svg" alt="player" height="70px" width="70px">
+      </div>
+      <div id="map">
+        <div class="planet" id="earth"></div>s
+      </div>
+    </div>
+  </body>
+</html>
+<script src="js/index.js"></script>

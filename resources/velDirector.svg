@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="453.04507mm"
+   height="451.45755mm"
+   viewBox="0 0 453.04508 451.45755"
+   version="1.1"
+   id="svg837"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)"
+   sodipodi:docname="velDirector.svg">
+  <defs
+     id="defs831" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="467.68742"
+     inkscape:cy="375.42686"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:measure-start="-831.356,1398.05"
+     inkscape:measure-end="-816.203,1431.39"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="986"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:snap-intersection-paths="true"
+     inkscape:object-paths="true"
+     inkscape:snap-midpoints="true" />
+  <metadata
+     id="metadata834">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(446.75261,92.573078)">
+    <circle
+       style="opacity:1;fill:none;fill-opacity:0.80930283;stroke:#cccccc;stroke-width:0.5291667;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       id="path1384"
+       cx="-220.22998"
+       cy="132.36186"
+       r="213.82243" />
+    <path
+       style="fill:#ffb380;fill-opacity:1;stroke:none;stroke-width:0.42316338px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m -220.22998,-92.573078 -27.07158,22.754167 27.07158,-7.9375 27.07158,7.9375 z"
+       id="path1386"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.52916664;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       id="rect822-6"
+       width="4.5357141"
+       height="25.702381"
+       x="-222.64906"
+       y="333.1821" />
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.52916664;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       id="rect822-3"
+       width="4.5357141"
+       height="25.702381"
+       x="129.94278"
+       y="-6.2924533"
+       transform="rotate(90)" />
+    <rect
+       style="opacity:1;fill:#cccccc;fill-opacity:1;stroke:none;stroke-width:0.52916664;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:fill markers stroke"
+       id="rect822-3-0"
+       width="4.5357141"
+       height="25.702381"
+       x="129.94278"
+       y="421.05023"
+       transform="rotate(90)" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot923"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#cccccc;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,-441.94176,-87.211571)"><flowRegion
+         id="flowRegion925"
+         style="fill:#cccccc"><rect
+           id="rect927"
+           width="125.25892"
+           height="56.568542"
+           x="796.00018"
+           y="1544.6719"
+           style="fill:#cccccc" /></flowRegion><flowPara
+         id="flowPara929">180</flowPara></flowRoot>  </g>
+</svg>
