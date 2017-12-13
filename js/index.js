@@ -5,10 +5,13 @@ var velDirector = document.getElementById("velDirector");
 var viewport = document.getElementById("viewport");
 var output = document.getElementById("output1");
 var output2 = document.getElementById("output2");
+var output3 = document.getElementById("output3")
 
-var velocity = [-13.25,13.25,0,13.5,13.5];
+var mouse = [0,0];
+
+var velocity = [-13.25,13.25,0,-13.5,13.5];
 var currentMargin = [-3000,-3000];
-var rocketAcc = .2;
+var rocketAcc = .07;
 var rocketMass = 1;
 var mouseStillDown = false;
 //distance from planet center: x, y, total
@@ -19,14 +22,16 @@ var d = [0,0,0,0,0];
 var gravPoints = [5000,5000,1000000];
 var displayHeightNow = false;
 
+/*alert("Welcome to Orbal! Controls: press anywhere on the map to fire your engines." +
+"Click within the rocketship's circle to open the fire menu. From there you can select which weapons to fire, and click anywhere on screen to fire them.");
+*/
 
 window.setInterval(updatePosition, 70);
 window.setInterval(updateApse, 100);
+window.setInterval(rocketBurn, 100);
 
 function updateApse() {
   //apoapse (highest point), periapse (lowest point)
-  //output2.innerHTML = "<p>Velocity: " + velocity[0] + ", " + velocity[1] + "</p>";
-  //output2.innerHTML += "<p>Dist: " + d[0] + ", " + d[1] + "</p>";
   //          0    1    2     3    4
   //velocity[-Vx1, Vy1, null, -Vx2, Vy2];
   //distance[Px1, -Py1, null, Px2, -Py2];
@@ -37,11 +42,11 @@ function updateApse() {
   var constant = Math.sqrt((d[0]-secondPoint[0])*(d[0]-secondPoint[0]) + ((-d[1])-secondPoint[1])*((-d[1])-secondPoint[1])) + Math.sqrt((d[0]*d[0]) + (-d[1])*(-d[1]));
   //output2.innerHTML += "<br /><p>Constant: " + constant + "</p>";
   var pointsDifference = Math.sqrt(secondPoint[0]*secondPoint[0] + secondPoint[1]*secondPoint[1]);
-  output2.innerHTML = "<p>Periapse(est): " + ((constant - pointsDifference)/2 - 2500) + "</p>";
+  output2.innerHTML = "<p>Periapse (est): " + ((constant - pointsDifference)/2 - 2500) + "</p>";
   if (((constant - pointsDifference)/2 - 2500) < 0) {
-    output2.innerHTML = "<p><span class='red'>Periapse(est): " + ((constant - pointsDifference)/2 - 2500) + "</span></p>";
+    output2.innerHTML = "<p>Periapse (est): <span class='warning'>" + ((constant - pointsDifference)/2 - 2500) + "</span></p>";
   }
-  output2.innerHTML += "<br /><p>Apoapse(est): " + ((constant - pointsDifference)/2 + pointsDifference - 2500) + "</p>";
+  output2.innerHTML += "<br /><p>Apoapse (est): " + ((constant - pointsDifference)/2 + pointsDifference - 2500) + "</p>";
   updateDownDirector();
   updateVelDirector();
 }
@@ -69,7 +74,7 @@ function alertHeight() {
 }
 
 function updateRocketRotation(evt) {
-  var mouse = [(event.clientX - (.5*viewport.offsetWidth)),(event.clientY - (.5*viewport.offsetHeight))];
+  mouse = [(event.clientX - (.5*viewport.offsetWidth)),(event.clientY - (.5*viewport.offsetHeight))];
   var angleRad = Math.atan(mouse[0]/mouse[1]);
   var angleDeg = (angleRad * 180 / Math.PI) + 180;
   if (mouse[1] > 0) {
@@ -114,23 +119,76 @@ function updateVelocity() {
 }
 
 function mouseDown() {
-  //alert("mousedown");
-  window.setInterval("rocketBurn()", 500);
-  rocketBurn();
+  rocketship.src = "resources/rocketship1Burning.svg";
+  mouseStillDown = true;
+  output3.innerHTML = "<p>Burning engines</p>";
 }
 
 function mouseUp() {
-  //alert("mouseup");
-  window.clearInterval(rocketBurn);
+  rocketship.src = "resources/rocketship1.svg";
+  mouseStillDown = false;
+  output3.innerHTML = "<p>Burn completed</p>";
 }
 
-window.setInterval(rocketBurn, 500);
 function rocketBurn(evt) {
   //alert("burn");
-  var mouse = [(event.clientX - (.5*viewport.offsetWidth)),-(event.clientY - (.5*viewport.offsetHeight))];
-  //alert(mouse[0] + ", " + mouse[1]);
-  var total = Math.sqrt((mouse[0]*mouse[0]) + (mouse[1]*mouse[1]));
-  velocity[0] -= (mouse[0]/total)*rocketAcc;
-  velocity[1] += (mouse[1]/total)*rocketAcc;
-  //velocity[0] = 5;
+  if(mouseStillDown) {
+    //alert(mouse[0] + ", " + mouse[1]);
+    var total = Math.sqrt((mouse[0]*mouse[0]) + (mouse[1]*mouse[1]));
+    velocity[0] -= (mouse[0]/total)*rocketAcc;
+    velocity[1] += (-mouse[1]/total)*rocketAcc;
+    //velocity[0] = 5;
+  }
+}
+
+var menuOpen = false;
+function lightUpBack() {
+  if (!menuOpen) {
+    cover.setAttribute("style","background-color: rgba(255,255,255,.04);");
+  }
+}
+function hideBack() {
+  if (!menuOpen) {
+    cover.setAttribute("style","background-color: rgba(255,255,255,0);");
+  }
+}
+
+function openMenu() {
+  var cover = document.getElementById("cover");
+  menuOpen = true;
+  cover.setAttribute("style","background-color: rgba(204,102,102,.03); height: 100vh; width: 100vw; border-radius: 0%; top: 0; left: 0;");
+  cover.removeAttribute("onclick");
+  cover.setAttribute("onclick","openFire()");
+  document.getElementById("menu").setAttribute("style","display: inline; opacity: 1;")
+  output3.innerHTML = "<p>Standing by for fire</p>"
+}
+
+var weaponSelected = 1;
+
+function openFire() {
+  if (weaponSelected == 1) {
+    output3.innerHTML = "<p>Primary weapon fired!</p>";
+  } else if (weaponSelected == 2) {
+    output3.innerHTML = "<p>Secondary weapon fired!</p>";
+  }
+}
+
+function closeMenu() {
+  var cover = document.getElementById("cover");
+  cover.setAttribute("style","background-color: rgba(255,255,255,.03); height: 170px; width: 170px; border-radius: 50%; top: calc(50vh - 85px); left: calc(50vw - 85px);");
+  cover.removeAttribute("onclick");
+  cover.setAttribute("onclick","openMenu()");
+  document.getElementById("menu").setAttribute("style","display: none; opacity: 0;");
+  output3.innerHTML = "<p>Standing down</p>";
+  menuOpen = false;
+}
+
+function loadPrimary() {
+  weaponSelected = 1;
+  output3.innerHTML = "<p>Primary weapon loaded!</p><br /><p>Standing by for fire</p>";
+}
+
+function loadSecondary() {
+  weaponSelected = 2;
+  output3.innerHTML = "<p>Secondary weapon loaded!</p><br /><p>Standing by for fire</p>";
 }
