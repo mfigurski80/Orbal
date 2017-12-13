@@ -3,6 +3,7 @@
   padding: 0;
   /*Color Vars*/
   --color-space: rgba(23,23,33,1);
+  --color-red: rgba(204,102,102,1);
 }
 ::selection {
   background: rgba(255,255,255,.0);
@@ -11,11 +12,27 @@ body {
   background-color: var(--color-space);
   cursor: crosshair;
 }
-
-.red {
-  color: indianred;
+p {
+  font-family: 'Inconsolata', monospace;
 }
 
+.warning {
+  background-color: var(--color-red);
+  color: black;
+}
+#cover {
+  position: fixed;
+  height: 170px;
+  width: 170px;
+  top: calc(50vh - 85px);
+  left: calc(50vw - 85px);
+  border-radius: 50%;
+  background-color: rgba(255,255,255,.00);
+  z-index: 5;
+  transition: all .3s;
+} #cover:hover {
+  /*background-color: rgba(255,255,255,.03);*/
+}
 #viewport {
   height: 100vh;
   width: 100vw;
@@ -25,6 +42,8 @@ body {
   width: 10000px;
   height: 10000px;
   overflow: hidden;
+  margin-left: calc(50vw - 3000px);
+  margin-top: calc(50vh - 3000px);
   transition: all .07s linear;
   background-image: url("../resources/stars.png");
   background-repeat: repeat;
@@ -38,6 +57,7 @@ body {
   position: fixed;
   margin-left: calc(50vw - 35px);
   margin-top: calc(50vh - 35px);
+  /*border-radius: 50%;*/
 }
 #downDirector {
   position: fixed;
@@ -50,6 +70,36 @@ body {
   position: fixed;
   margin-left: calc(50vw - 85px);
   margin-top: calc(50vh - 85px);
+  border-radius: 50%;
+}
+#menu {
+  /*background-color: red;*/
+  background-image: url("../resources/orbalMenu.svg");
+  background-size: cover;
+  position: fixed;
+  height: 130px;
+  width: 38px;
+  top: calc(50vh - 65px);
+  left: calc(50vw + 95px);
+  z-index: 10;
+  display: none;
+  opacity: 0;
+  transition: all .3s;
+}
+#primary {
+  width: 100%;
+  height: 33%;
+  /*background-color: red;*/
+}
+#secondary {
+  width: 100%;
+  height: 33%;
+  /*background-color: green;*/
+}
+#exit {
+  width: 100%;
+  height: 34%;
+  /*background-color: yellow;*/
 }
 .output {
   position: fixed;
@@ -62,11 +112,14 @@ body {
   z-index: 10;
 } .output > p {
   color: white;
+  margin-left: 3px;
 }
 #output2 {
   left: calc(100vw - 152px);
 }
-
+#output3 {
+  top: 100px;
+}
 .planet {
   width: 100px;
   height: 100px;
